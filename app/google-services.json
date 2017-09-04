@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "582078916785",
+    "project_id": "firebase-kcalcounter"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:582078916785:android:b4ae07539517f61e",
+        "android_client_info": {
+          "package_name": "inc.ak.kkalcounter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "582078916785-ec1ijksqsm8p7fpbsbrcl773h4pq7j65.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "inc.ak.kkalcounter",
+            "certificate_hash": "672da0ee12add4c01c048e20a256f8c4baa7ab53"
+          }
+        },
+        {
+          "client_id": "582078916785-fnmo57qrps90mcjuu3r0q112klu6vrsh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyBNJET3Y68ZUd8lEwXjqHG7Sq4OxlQZM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

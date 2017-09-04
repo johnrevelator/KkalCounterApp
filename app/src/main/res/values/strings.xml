@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Счетчик каллорий</string>
+    <string name="title_activity_desc_scrolling">DescScrollingActivity</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="params"><b>Вес:</b> %s \n<b>Рост:</b> %s\n<b>Возраст:</b> %s\n<b>Пол:</b> %s</string>
+    <string name="prot">Белки:\n%s g</string>
+    <string name="carb">Углеводы:\n%s g</string>
+    <string name="fat">Жиры:\n%s g</string>
+    <string name="kcal">Каллории:\n%s kcal</string>
+    <string name="kcal_row">%s kcal</string>
+
+</resources>

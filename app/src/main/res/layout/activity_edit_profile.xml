@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="inc.ak.kkalcounter.activity.MainActivity">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/appBar"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+        android:layout_below="@+id/appBar"
+    android:orientation="vertical"
+    tools:context="inc.ak.kkalcounter.activity.EditProfile">
+    <LinearLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="17sp"
+            android:textColor="@android:color/black"
+            android:text="Пол"/>
+        <com.rm.rmswitch.RMTristateSwitch
+            android:id="@+id/rm_triswitch2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:state="middle"
+            app:switchBkgLeftColor="@color/pink"
+            app:switchBkgMiddleColor="@color/grey"
+            app:switchBkgRightColor="@color/blue"
+            app:switchDesign="slim"
+            app:switchToggleLeftColor="@color/pinkDark"
+            app:switchToggleLeftImage="@drawable/female"
+            app:switchToggleMiddleColor="@color/greyDark"
+            app:switchToggleMiddleImage="@drawable/transgender"
+            app:switchToggleRightColor="@color/blueDark"
+            app:switchToggleRightImage="@drawable/male"/>
+
+    </LinearLayout>
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+            android:id="@+id/age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Возраст"
+            android:textSize="17sp"
+            />
+
+        <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+            android:textSize="17sp"
+        android:layout_marginTop="8dp"
+
+        android:layout_height="wrap_content"
+        android:id="@+id/weight"
+        android:hint="Вес"/>
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:id="@+id/height"
+        android:textSize="17sp"
+        android:layout_marginTop="8dp"
+
+        android:layout_height="wrap_content"
+        android:hint="Рост"/>
+        <fr.ganfra.materialspinner.MaterialSpinner
+            android:id="@+id/spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            app:ms_multiline="false"
+        app:ms_hint="Ваша активность"
+        app:ms_enableFloatingLabel="false"
+        app:ms_enableErrorLabel="false"
+            android:layout_marginTop="8dp"
+
+        app:ms_highlightColor="@color/colorPrimary"
+        app:ms_thickness="0.1dp"
+        app:ms_arrowColor="@color/colorPrimaryDark"
+        app:ms_arrowSize="14dp"
+        app:ms_alignLabels="false"
+        app:ms_floatingLabelColor="@color/colorPrimary"/>
+
+</LinearLayout>
+    </RelativeLayout>

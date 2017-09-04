@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="devlight">
+        <item>#66b2b2</item>
+        <item>#008080</item>
+        <item>#005959</item>
+        <item>#005959</item>
+    </string-array>
+
+    <string-array name="items">
+        <item>Завтрак</item>
+        <item>Обед</item>
+        <item>Ужин</item>
+        <item>Пеерекус</item>
+    </string-array>
+
+    <string-array name="active">
+        <item>Миимальный</item>
+        <item>Низкий</item>
+        <item>Средний</item>
+        <item>Высокий</item>
+        <item>Очень высокий</item>
+    </string-array>
+
+    <string-array name="bg">
+        <item>#06000000</item>
+        <item>#12000000</item>
+        <item>#18000000</item>
+        <item>#24000000</item>
+    </string-array>
+
+    <string-array name="polluted_waves">
+        <item>#394948</item>
+        <item>#5a7874</item>
+        <item>#499092</item>
+        <item>#43abae</item>
+    </string-array>
+
+    <string-array name="medical_express">
+        <item>#a3a3a3</item>
+        <item>#bbbbbb</item>
+        <item>#cccccc</item>
+        <item>#dddddd</item>
+    </string-array>
+    <string-array name="query_suggestions">
+        <item>Каша</item>
+        <item>Хлебцы</item>
+        <item>Кола</item>
+        <item>Ruby</item>
+        <item>JavaScript</item>
+    </string-array>
+
+</resources>

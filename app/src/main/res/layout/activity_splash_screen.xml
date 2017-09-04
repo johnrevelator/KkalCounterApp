@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="inc.ak.kkalcounter.activity.SplashScreen">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:fontFamily="sans-serif-light"
+
+        android:text="Счетчик каллорий"
+        android:textSize="32sp"
+        android:id="@+id/textView" />
+    <Button
+        android:id="@+id/sign_in_button"
+        android:layout_marginBottom="48dp"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:text="Войти с помощью Google"
+        android:background="@drawable/btn_google_signin_light_normal_hdpi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
