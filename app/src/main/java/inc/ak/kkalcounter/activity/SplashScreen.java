@@ -61,9 +61,13 @@ public class SplashScreen extends SuperActivity implements GoogleApiClient.OnCon
                     if(Preferences.getString(Preferences.SEX).equals("")){
                         Intent intent = new Intent(getBaseContext(), EditProfile.class);
                         startActivity(intent);
+                        finish();
+
                     }else {
                         Intent intent = new Intent(getBaseContext(), MainActivity.class);
                         startActivity(intent);
+                        finish();
+
                     }
                 }
             }},2000);
@@ -86,17 +90,31 @@ public class SplashScreen extends SuperActivity implements GoogleApiClient.OnCon
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
 
-                askUpdate(response.body().get(0).getId());
+                try {
+                    Preferences.addString(Preferences.USER_ID, response.body().get(0).getId());
+                    Log.i("MyLog", response.body().get(0).getId()+" ");
+                    askUpdate(response.body().get(0).getId());
+                }catch (Exception e){
+                    Log.i("MyLog",e.getMessage());
+                    startActivity(new Intent(getBaseContext(),EditProfile.class));
+                    finish();
+
+                }
             }
 
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
                 Log.i("MyLog", String.valueOf(t));
                 startActivity(new Intent(getBaseContext(),EditProfile.class));
+                finish();
+
 
             }
         });
     }
+
+
+
 
     public void askUpdate(final String id){
         new MaterialDialog.Builder(this)
@@ -108,6 +126,8 @@ public class SplashScreen extends SuperActivity implements GoogleApiClient.OnCon
                     @Override
                     public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                         startActivity(new Intent(getBaseContext(),EditProfile.class).putExtra("update",1).putExtra("id",id));
+                        finish();
+
 
                     }
                 })
@@ -115,6 +135,8 @@ public class SplashScreen extends SuperActivity implements GoogleApiClient.OnCon
                     @Override
                     public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
                         startActivity(new Intent(getBaseContext(),EditProfile.class));
+                        finish();
+
 
                     }
                 })
@@ -124,6 +146,8 @@ public class SplashScreen extends SuperActivity implements GoogleApiClient.OnCon
 
 
     private void signIn() {
+        Auth.GoogleSignInApi.signOut(mGoogleApiClient);
+
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, 1);
     }

@@ -109,7 +109,7 @@ public class HistoryFragment extends SuperFragment {
         double totcarb=0.0;
         double totprot=0.0;
         double totkcal=0.0;
-        KkalCounter.getApi().getEating("createdAt desc").enqueue(new Callback<List<Eating>>() {
+        KkalCounter.getApi().getEating("userId eq '"+Preferences.getString(Preferences.USER_ID)+"'","createdAt desc").enqueue(new Callback<List<Eating>>() {
             @Override
             public void onResponse(final Call<List<Eating>> call, final Response<List<Eating>> response) {
 
@@ -126,14 +126,14 @@ public class HistoryFragment extends SuperFragment {
                         double totcarb=0.0;
                         double totprot=0.0;
                         double totkcal=0.0;
-                        Eating eating=new Eating(null,"0.0","0.0","0.0","0.0",date);
+                        Eating eating=new Eating(null,"0.0","0.0","0.0","0.0",date,Preferences.getString(Preferences.USER_ID));
 
                             for(int r=0;r<response.body().size();r++) {
                                 if(!response.body().get(r).getDate().equals(currdate)) {
                                     eatingList.add(eating);
                                     currdate=response.body().get(r).getDate();
 
-                                    eating=new Eating(null,null,null,null,null,null);
+                                    eating=new Eating(null,null,null,null,null,null,Preferences.getString(Preferences.USER_ID));
                                 }
                                     double fat=0.0;
                                     double carb=0.0;

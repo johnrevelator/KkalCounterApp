@@ -32,18 +32,6 @@
     </FrameLayout>
     </android.support.design.widget.AppBarLayout>
 
-    <com.malinskiy.superrecyclerview.SuperRecyclerView
-        android:layout_below="@+id/appBar"
-        android:id="@+id/list"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_moreProgress="@layout/view_loading_dialog"
-
-        app:mainLayoutId="@layout/layout_recyclerview_verticalscroll"
-        app:recyclerClipToPadding="false"
-        app:recyclerPadding="2dp"
-        />
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:id="@+id/nothing"
@@ -75,4 +63,17 @@
             android:layout_height="50dp" />
 
     </LinearLayout>
+    <com.malinskiy.superrecyclerview.SuperRecyclerView
+        android:layout_below="@+id/appBar"
+        android:id="@+id/list"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_moreProgress="@layout/view_loading_dialog"
+
+        app:mainLayoutId="@layout/layout_recyclerview_verticalscroll"
+        app:recyclerClipToPadding="false"
+        app:recyclerPadding="2dp"
+        />
+
 </RelativeLayout>

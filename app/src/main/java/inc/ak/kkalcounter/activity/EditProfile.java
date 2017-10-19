@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -113,6 +114,9 @@ public class EditProfile extends SuperActivity {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 startActivity(new Intent(getBaseContext(),MainActivity.class));
+                Preferences.addString(Preferences.USER_ID, response.body().getId());
+                Log.i("MyLog", response.body().getId()+" ");
+                finish();
 
             }
 
@@ -122,11 +126,25 @@ public class EditProfile extends SuperActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(getBaseContext(),SplashScreen.class));
+        finish();
+
+    }
+
     public void addUser(User user){
         KkalCounter.getApi().setUser(user).enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 startActivity(new Intent(getBaseContext(),MainActivity.class));
+
+
+                Preferences.addString(Preferences.USER_ID, response.body().getId());
+                Log.i("MyLog", response.body().getId()+" ");
+                finish();
 
             }
 

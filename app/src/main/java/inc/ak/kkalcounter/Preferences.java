@@ -33,6 +33,7 @@ public class Preferences {
         public final static String CARB_KCAL= "carbKcal";
         public final static String ACTIVE= "active";
         public final static String FAT_KCAL= "fatKcal";
+        public final static String USER_ID= "user_id";
 
 
 

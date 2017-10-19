@@ -153,8 +153,12 @@ public class ChooseProduct extends SuperActivity implements SwipeRefreshLayout.O
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
 
-
+    }
 
     public void loadDataFilter(final String sugest, int flag){
         nothing.setVisibility(View.GONE);

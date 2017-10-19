@@ -147,6 +147,7 @@ public class ProfileFragment extends SuperFragment {
                 Preferences.addString(Preferences.ACCOUNT, "");
                 Preferences.addString(Preferences.ACCOUNT_NAME, "");
                 Preferences.addString(Preferences.ACCOUNT_IMG, "");
+                Preferences.addString(Preferences.USER_ID, "");
                 startActivity(new Intent(getContext(),SplashScreen.class));
 
                 break;

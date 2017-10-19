@@ -24,6 +24,7 @@ import java.util.Calendar;
 
 import butterknife.Bind;
 import inc.ak.kkalcounter.KkalCounter;
+import inc.ak.kkalcounter.Preferences;
 import inc.ak.kkalcounter.R;
 import inc.ak.kkalcounter.activity.SuperActivity;
 import inc.ak.kkalcounter.model.Eating;
@@ -113,7 +114,7 @@ public class DescScrollingActivity extends SuperActivity{
                             send(new Eating(text.toString(), String.valueOf(Double.parseDouble(product.getFat()) * koef),
                                     String.valueOf(Double.parseDouble(product.getCarb()) * koef),
                                     String.valueOf(Double.parseDouble(product.getProt()) * koef),
-                                    String.valueOf(Double.parseDouble(product.getKcal()) * koef), date));
+                                    String.valueOf(Double.parseDouble(product.getKcal()) * koef), date, Preferences.getString(Preferences.USER_ID)));
                         }
                     })
                     .show();
@@ -129,7 +130,7 @@ public class DescScrollingActivity extends SuperActivity{
             send(new Eating(getIntent().getStringExtra("tp"), String.valueOf(Double.parseDouble(product.getFat()) * koef),
                     String.valueOf(Double.parseDouble(product.getCarb()) * koef),
                     String.valueOf(Double.parseDouble(product.getProt()) * koef),
-                    String.valueOf(Double.parseDouble(product.getKcal()) * koef), date));
+                    String.valueOf(Double.parseDouble(product.getKcal()) * koef), date, Preferences.getString(Preferences.USER_ID)));
         }
     }
 
@@ -151,5 +152,10 @@ public class DescScrollingActivity extends SuperActivity{
         });
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
 
+    }
 }

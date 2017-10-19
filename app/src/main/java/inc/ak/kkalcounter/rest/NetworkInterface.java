@@ -59,7 +59,7 @@ public interface NetworkInterface {
             "zumo-api-version: 2.0.0"
     })
     @GET("tables/Eating")
-    Call<List<Eating>> getEating(@Query("$orderby") String filter);
+    Call<List<Eating>> getEating(@Query("$filter") String filter,@Query("$orderby") String orderby);
     @Headers({
             "Accept: application/json",
             "Content-Type: application/json",

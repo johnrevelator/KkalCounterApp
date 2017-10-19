@@ -49,6 +49,7 @@ import inc.ak.kkalcounter.listener.ClickListener;
 import inc.ak.kkalcounter.listener.RecyclerTouchListener;
 import inc.ak.kkalcounter.model.Eating;
 import inc.ak.kkalcounter.model.Product;
+import inc.ak.kkalcounter.model.User;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -246,7 +247,7 @@ public class DailyActFragment extends SuperFragment {
         double totcarb=0.0;
         double totprot=0.0;
         double totkcal=0.0;
-        KkalCounter.getApi().getEatingList("date eq '"+date+"'").enqueue(new Callback<List<Eating>>() {
+        KkalCounter.getApi().getEatingList("date eq '"+date+"' and userId eq '"+Preferences.getString(Preferences.USER_ID)+"'").enqueue(new Callback<List<Eating>>() {
             @Override
             public void onResponse(final Call<List<Eating>> call, final Response<List<Eating>> response) {
 
@@ -260,7 +261,7 @@ public class DailyActFragment extends SuperFragment {
                         double totprot=0.0;
                         double totkcal=0.0;
                         for(int i=0;i<getResources().getStringArray(R.array.items).length;i++){
-                            Eating eating=new Eating(getResources().getStringArray(R.array.items)[i],null,null,null,null,null);
+                            Eating eating=new Eating(getResources().getStringArray(R.array.items)[i],null,null,null,null,null,Preferences.getString(Preferences.USER_ID));
                             for(int r=0;r<response.body().size();r++) {
                                 if(response.body().get(r).getType().equals(getResources().getStringArray(R.array.items)[i])){
                                     double fat=0.0;

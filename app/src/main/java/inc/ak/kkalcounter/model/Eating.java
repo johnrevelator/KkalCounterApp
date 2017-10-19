@@ -15,9 +15,10 @@ public class Eating implements Serializable {
     private String img;
     private String date;
     private String prodName;
+    private String userId;
 
 
-    public Eating(String type, String fat, String carb, String prot, String kcal,String date){
+    public Eating(String type, String fat, String carb, String prot, String kcal,String date,String user_id){
         this.name=name;
         this.type=type;
         this.fat=fat;
@@ -25,6 +26,11 @@ public class Eating implements Serializable {
         this.prot=prot;
         this.kcal=kcal;
         this.date=date;
+        this.userId=user_id;
+    }
+
+    public String getUser_id() {
+        return userId;
     }
 
     public void setDate(String date) {
