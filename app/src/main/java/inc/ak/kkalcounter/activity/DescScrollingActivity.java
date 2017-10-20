@@ -114,7 +114,7 @@ public class DescScrollingActivity extends SuperActivity{
                             send(new Eating(text.toString(), String.valueOf(Double.parseDouble(product.getFat()) * koef),
                                     String.valueOf(Double.parseDouble(product.getCarb()) * koef),
                                     String.valueOf(Double.parseDouble(product.getProt()) * koef),
-                                    String.valueOf(Double.parseDouble(product.getKcal()) * koef), date, Preferences.getString(Preferences.USER_ID)));
+                                    String.valueOf(Double.parseDouble(product.getKcal()) * koef), date, Preferences.getString(Preferences.USER_ID),product.getName()));
                         }
                     })
                     .show();
@@ -130,7 +130,7 @@ public class DescScrollingActivity extends SuperActivity{
             send(new Eating(getIntent().getStringExtra("tp"), String.valueOf(Double.parseDouble(product.getFat()) * koef),
                     String.valueOf(Double.parseDouble(product.getCarb()) * koef),
                     String.valueOf(Double.parseDouble(product.getProt()) * koef),
-                    String.valueOf(Double.parseDouble(product.getKcal()) * koef), date, Preferences.getString(Preferences.USER_ID)));
+                    String.valueOf(Double.parseDouble(product.getKcal()) * koef), date, Preferences.getString(Preferences.USER_ID),product.getName()));
         }
     }
 

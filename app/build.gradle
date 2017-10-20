@@ -44,7 +44,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'appcompat-v7'
     }
 
-
     //commons
     compile 'com.google.android.gms:play-services-auth:9.8.0'
     compile 'com.android.support:appcompat-v7:25.3.1'
@@ -65,7 +64,7 @@ dependencies {
     compile 'com.rengwuxian.materialedittext:library:2.1.4'
     compile 'com.afollestad.material-dialogs:commons:0.9.4.5'
     compile 'com.jakewharton:butterknife:7.0.1'
-    compile 'com.github.gigamole.arcprogressstackview:library:1.0.3'
+    compile 'devlight.io:arcprogressstackview:1.0.4'
     compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
     compile 'com.github.ybq:Endless-RecyclerView:1.0.3'
     compile 'com.github.ksoichiro:android-observablescrollview:1.5.0'
@@ -75,9 +74,13 @@ dependencies {
     compile 'com.microsoft.azure:azure-mobile-android:3.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+    compile 'org.jsoup:jsoup:1.10.3'
 
     //баг репорт
     compile 'testfairy:testfairy-android-sdk:1.+@aar'
+
+
+
 
 
 

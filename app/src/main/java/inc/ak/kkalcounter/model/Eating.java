@@ -18,7 +18,7 @@ public class Eating implements Serializable {
     private String userId;
 
 
-    public Eating(String type, String fat, String carb, String prot, String kcal,String date,String user_id){
+    public Eating(String type, String fat, String carb, String prot, String kcal,String date,String user_id,String name){
         this.name=name;
         this.type=type;
         this.fat=fat;

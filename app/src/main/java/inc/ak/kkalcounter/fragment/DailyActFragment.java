@@ -30,7 +30,6 @@ import android.widget.TextView;
 
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
-import com.gigamole.library.ArcProgressStackView;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -40,13 +39,17 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.OnClick;
+import devlight.io.library.ArcProgressStackView;
 import inc.ak.kkalcounter.KkalCounter;
 import inc.ak.kkalcounter.OnLoadMoreListener;
 import inc.ak.kkalcounter.Preferences;
 import inc.ak.kkalcounter.R;
+import inc.ak.kkalcounter.activity.DescScrollingActivity;
+import inc.ak.kkalcounter.activity.EatingDetailsActivity;
 import inc.ak.kkalcounter.adapters.FoodAdapter;
 import inc.ak.kkalcounter.listener.ClickListener;
 import inc.ak.kkalcounter.listener.RecyclerTouchListener;
+import inc.ak.kkalcounter.listener.RvTouchListener;
 import inc.ak.kkalcounter.model.Eating;
 import inc.ak.kkalcounter.model.Product;
 import inc.ak.kkalcounter.model.User;
@@ -131,18 +134,21 @@ public class DailyActFragment extends SuperFragment {
     int mCounter;
 
 
-    @Override
-    public View onCreateViewFragment(View view) {
-        setupBottomSheet();
-
-
-
-        max.setText(Preferences.getString(Preferences.BMR));
+    public void createArc(){
 
         mArcProgressStackView = (ArcProgressStackView) view.findViewById(R.id.apsv);
         mArcProgressStackView.setShadowColor(Color.argb(200, 0, 0, 0));
         mArcProgressStackView.setAnimationDuration(1000);
         mArcProgressStackView.setSweepAngle(360);
+
+    }
+
+    @Override
+    public View onCreateViewFragment(View view) {
+        setupBottomSheet();
+        setupClickListener();
+
+        max.setText(Preferences.getString(Preferences.BMR));
 
         final String[] stringColors = getResources().getStringArray(R.array.devlight);
         final String[] stringBgColors = getResources().getStringArray(R.array.bg);
@@ -261,7 +267,7 @@ public class DailyActFragment extends SuperFragment {
                         double totprot=0.0;
                         double totkcal=0.0;
                         for(int i=0;i<getResources().getStringArray(R.array.items).length;i++){
-                            Eating eating=new Eating(getResources().getStringArray(R.array.items)[i],null,null,null,null,null,Preferences.getString(Preferences.USER_ID));
+                            Eating eating=new Eating(getResources().getStringArray(R.array.items)[i],null,null,null,null,null,Preferences.getString(Preferences.USER_ID),null);
                             for(int r=0;r<response.body().size();r++) {
                                 if(response.body().get(r).getType().equals(getResources().getStringArray(R.array.items)[i])){
                                     double fat=0.0;
@@ -311,7 +317,9 @@ public class DailyActFragment extends SuperFragment {
                         models.add(new ArcProgressStackView.Model("БЕЛКИ", (int)(totprot/Integer.valueOf(Preferences.getString(Preferences.NEED_PROT))*100), bgColors[0], colors[0]));
                         models.add(new ArcProgressStackView.Model("ЖИРЫ",(int)(totfat/Integer.valueOf(Preferences.getString(Preferences.NEED_FAT))*100), bgColors[1], colors[1]));
                         models.add(new ArcProgressStackView.Model("УГЛЕВОДЫ", (int)(totcarb/Integer.valueOf(Preferences.getString(Preferences.NEED_CARB))*100), bgColors[2], colors[2]));
+createArc();
                         mArcProgressStackView.setModels(models);
+                        mArcProgressStackView.setIsDragged(false);
 
 
                         kcalBar.setSecondaryProgress((int)(totkcal/Integer.valueOf(Preferences.getString(Preferences.BMR))*100));
@@ -351,6 +359,21 @@ public class DailyActFragment extends SuperFragment {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(mAdapter);
+    }
+    public void setupClickListener(){
+        recyclerView.addOnItemTouchListener(new RvTouchListener(getContext(),recyclerView, new ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                startActivity(new Intent(getActivity(),EatingDetailsActivity.class).putExtra("type",eatingList.get(position).getType()));
+
+            }
+
+            @Override
+            public void onLongClick(View view, final int position) {
+
+
+            }
+        }));
     }
 
 }

@@ -14,7 +14,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.gigamole.library.ArcProgressStackView;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import java.text.DateFormat;
@@ -126,14 +125,14 @@ public class HistoryFragment extends SuperFragment {
                         double totcarb=0.0;
                         double totprot=0.0;
                         double totkcal=0.0;
-                        Eating eating=new Eating(null,"0.0","0.0","0.0","0.0",date,Preferences.getString(Preferences.USER_ID));
+                        Eating eating=new Eating(null,"0.0","0.0","0.0","0.0",date,Preferences.getString(Preferences.USER_ID),null);
 
                             for(int r=0;r<response.body().size();r++) {
                                 if(!response.body().get(r).getDate().equals(currdate)) {
                                     eatingList.add(eating);
                                     currdate=response.body().get(r).getDate();
 
-                                    eating=new Eating(null,null,null,null,null,null,Preferences.getString(Preferences.USER_ID));
+                                    eating=new Eating(null,null,null,null,null,null,Preferences.getString(Preferences.USER_ID),null);
                                 }
                                     double fat=0.0;
                                     double carb=0.0;

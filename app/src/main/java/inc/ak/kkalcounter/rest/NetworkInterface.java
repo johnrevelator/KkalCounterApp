@@ -8,6 +8,7 @@ import inc.ak.kkalcounter.model.Product;
 import inc.ak.kkalcounter.model.User;
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -36,6 +37,15 @@ public interface NetworkInterface {
     })
     @POST("tables/Eating")
     Call<Eating> addEating(@Body Eating eating);
+
+
+    @Headers({
+            "Accept: application/json",
+            "Content-Type: application/json",
+            "zumo-api-version: 2.0.0"
+    })
+    @DELETE("tables/Eating/{id}")
+    Call<Eating> deleteEating(@Path("id") String bookId);
 
     @Headers({
             "Accept: application/json",

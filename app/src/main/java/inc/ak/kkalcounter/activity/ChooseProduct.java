@@ -135,6 +135,7 @@ public class ChooseProduct extends SuperActivity implements SwipeRefreshLayout.O
                 sugest=newText;
                 mAdapter.clear();
                 loadDataFilter(sugest,1);
+                Log.i("MyLog","suggest");
                 return false;
             }
         });
@@ -162,6 +163,7 @@ public class ChooseProduct extends SuperActivity implements SwipeRefreshLayout.O
 
     public void loadDataFilter(final String sugest, int flag){
         nothing.setVisibility(View.GONE);
+        mRecycler.setVisibility(View.VISIBLE);
 
 
 
@@ -174,11 +176,14 @@ public class ChooseProduct extends SuperActivity implements SwipeRefreshLayout.O
                         if(response.body().size()==0){
 
                             nothing.setVisibility(View.VISIBLE);
+                            mRecycler.setVisibility(View.GONE);
 
-                        }
-                        mAdapter.addAll(response.body());
+                        } else {
+                    mAdapter.clear();
+                    mAdapter.addAll(response.body());
+                    mAdapter.notifyDataSetChanged();
 
-
+                }
 
 
 
@@ -237,11 +242,11 @@ public class ChooseProduct extends SuperActivity implements SwipeRefreshLayout.O
 
     @Override
     public void onMoreAsked(int overallItemsCount, int itemsBeforeMore, int maxLastVisiblePosition) {
-        mHandler.postDelayed(new Runnable() {
+      /*  mHandler.postDelayed(new Runnable() {
             public void run() {
                 loadDataFilter(sugest,1);
             }
-        }, 300);
+        }, 300);*/
     }
 
     @Override

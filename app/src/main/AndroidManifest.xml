@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.ChooseProduct" />
         <activity
             android:name=".activity.DescScrollingActivity"
@@ -26,7 +26,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.AddProductActivity"></activity>
+        <activity android:name=".activity.AddProductActivity" />
+        <activity
+            android:name=".activity.EatingDetailsActivity"
+            android:label="@string/title_activity_eating_details"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

@@ -9,5 +9,6 @@
     <string name="fat">Жиры:\n%s g</string>
     <string name="kcal">Каллории:\n%s kcal</string>
     <string name="kcal_row">%s kcal</string>
+    <string name="title_activity_eating_details">EatingDetailsActivity</string>
 
 </resources>
